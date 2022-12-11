@@ -2,7 +2,6 @@ import { db } from "../database/connectPG.js";
 
 const getAllGames = async (req, res) => {
   const searchFilter = req.query.name;
-  console.log(searchFilter);
 
   try {
     if (searchFilter) {
