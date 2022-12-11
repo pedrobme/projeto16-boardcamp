@@ -1,6 +1,6 @@
 import { db } from "../database/connectPG.js";
 
-const getAllGames = async (req, res) => {
+const getGames = async (req, res) => {
   const searchFilter = req.query.name;
 
   try {
@@ -19,4 +19,4 @@ const getAllGames = async (req, res) => {
   }
 };
 
-export default getAllGames;
+export default getGames;
