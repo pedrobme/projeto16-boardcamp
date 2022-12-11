@@ -2,10 +2,8 @@ import { db } from "../database/connectPG.js";
 
 const insertOneCategory = async (req, res) => {
   const receivedCategory = req.body;
-  console.log(receivedCategory.name);
 
   try {
-    // const db = await connectDB();
     const categoryNameAvailabilitycheck = await db.query(
       "SELECT * FROM categories WHERE name=$1;",
       [receivedCategory.name]
@@ -20,7 +18,6 @@ const insertOneCategory = async (req, res) => {
       [`${receivedCategory.name}`]
     );
 
-    console.log(result);
     res.status(201).send(receivedCategory);
   } catch (error) {
     return res.status(500).send(error);
