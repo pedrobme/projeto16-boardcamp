@@ -48,13 +48,15 @@ const insertOneRental = async (req, res) => {
     FROM
         rentals
     WHERE
-        rentals."gameId"=$1
+        (rentals."gameId"=$1 AND rentals."returnDate" IS NULL);
     `,
       [receivedRental.gameId]
     );
 
+    console.log(avaibleForRentValidation.rows);
+
     if (
-      avaibleForRentValidation.rowCount == gameValidation.rows[0].stockTotal
+      avaibleForRentValidation.rowCount >= gameValidation.rows[0].stockTotal
     ) {
       return res.status(400).send("All units already rented");
     }
