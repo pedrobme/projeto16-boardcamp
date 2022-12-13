@@ -89,8 +89,6 @@ const insertOneRental = async (req, res) => {
       ]
     );
 
-    console.log(result);
-
     res.status(201).send(newRentalObj);
   } catch (err) {
     res.status(500).send(err.message);
