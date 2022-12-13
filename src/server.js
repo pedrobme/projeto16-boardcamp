@@ -10,6 +10,7 @@ import postCustomersRoute from "./routes/postCustomers.route.js";
 import patchCustomersRoute from "./routes/patchCustomers.route.js";
 import postRentalsRoute from "./routes/postRentals.route.js";
 import postRentalsReturnRoute from "./routes/postRentalsReturn.route.js";
+import getRentalsRoute from "./routes/getRentals.route.js";
 
 const app = express();
 const port = 4000;
@@ -28,5 +29,6 @@ app.use(postCustomersRoute);
 app.use(patchCustomersRoute);
 app.use(postRentalsRoute);
 app.use(postRentalsReturnRoute);
+app.use(getRentalsRoute);
 
 app.listen(port, () => console.log(`Server running in port ${port}`));
